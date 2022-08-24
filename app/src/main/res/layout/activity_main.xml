@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg"
+            tools:context=".view.MainActivity">
+
+            <ImageView
+                android:id="@+id/loc_img"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_location"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp" />
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/loc_img"
+                app:layout_constraintStart_toEndOf="@id/loc_img"
+                android:layout_marginStart="16dp"
+                android:text="Location"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_just_updated"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/loc_img"
+                app:layout_constraintStart_toStartOf="@+id/tv_location"
+                android:text="Just Updated"
+                android:textColor="@color/grey"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/calendar_img"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_calendar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_tem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/loc_img"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:text="35"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/degree_dot"
+                android:layout_marginTop="6dp"
+                app:layout_constraintTop_toTopOf="@id/tv_tem"
+                app:layout_constraintStart_toEndOf="@id/tv_tem"
+                android:layout_marginStart="4dp"/>
+
+            <TextView
+                android:id="@+id/tv_haze"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_tem"
+                app:layout_constraintStart_toStartOf="@+id/tv_tem"
+                android:text="HAZE"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/day_rv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_haze"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/line_chart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:pointerIcon="no_drop"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/bg_color"
+                app:layout_constraintTop_toBottomOf="@id/day_rv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/line_chart2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:pointerIcon="no_drop"
+                android:background="@color/bg_color"
+                app:layout_constraintTop_toBottomOf="@id/line_chart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <View
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line_chart2"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/day_rv2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toBottomOf="@id/view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <View
+                android:id="@+id/view1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/day_rv2"/>
+
+            <TextView
+                android:id="@+id/tv_pre_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/white"
+                android:text="Probability of precipitation"
+                app:layout_constraintTop_toBottomOf="@id/view1"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <TextView
+                android:id="@+id/tv_pre"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/white"
+                android:text="NA"
+                app:layout_constraintTop_toBottomOf="@id/tv_pre_view"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_pre1_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:text="precipitation"
+                android:layout_marginStart="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view1"
+                app:layout_constraintStart_toEndOf="@id/tv_pre_view"
+                />
+            <TextView
+                android:id="@+id/tv_pre1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="NA"
+                app:layout_constraintStart_toStartOf="@+id/tv_pre1_view"
+                app:layout_constraintTop_toBottomOf="@id/tv_pre1_view"
+                app:layout_constraintEnd_toEndOf="@+id/tv_pre1_view"/>
+
+
+            <TextView
+                android:id="@+id/tv_east_wind_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:text="East wind"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_pre"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <TextView
+                android:id="@+id/tv_east_wind"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginStart="8dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="4.12"
+                app:layout_constraintTop_toBottomOf="@id/tv_east_wind_view"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_temp_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:text="Perceived temperature"
+                android:textAlignment="textStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_east_wind_view"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_east_wind_view"
+                app:layout_constraintStart_toStartOf="@+id/tv_pre1_view"
+                />
+            <TextView
+                android:id="@+id/tv_temp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="1007"
+                app:layout_constraintStart_toStartOf="@+id/tv_temp_view"
+                app:layout_constraintTop_toBottomOf="@id/tv_temp_view"
+                />
+
+
+
+            <TextView
+                android:id="@+id/tv_hum_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:text="HUM"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_east_wind"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <TextView
+                android:id="@+id/tv_hum"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="26"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_hum_view"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_vis_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:text="Visibility"
+                android:textAlignment="textStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_hum_view"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_hum_view"
+                app:layout_constraintStart_toStartOf="@+id/tv_pre1_view"
+                />
+            <TextView
+                android:id="@+id/tv_vis"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="1007"
+                app:layout_constraintStart_toStartOf="@+id/tv_temp_view"
+                app:layout_constraintTop_toBottomOf="@id/tv_vis_view"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_uv_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:text="UV"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_hum"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <TextView
+                android:id="@+id/tv_uv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="5.65"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_uv_view"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_pressure_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:text="Pressur"
+                android:textAlignment="textStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_uv_view"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_uv_view"
+                app:layout_constraintStart_toStartOf="@+id/tv_pre1_view"
+                />
+            <TextView
+                android:id="@+id/tv_pressure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="1007"
+                app:layout_constraintStart_toStartOf="@+id/tv_temp_view"
+                app:layout_constraintTop_toBottomOf="@id/tv_pressure_view"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>
